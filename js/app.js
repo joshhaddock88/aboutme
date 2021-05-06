@@ -74,10 +74,7 @@ let computerNumber = Math.floor(Math.random() * 10) + 1;
 console.log('Computer number is', computerNumber);
 
 for(let i = 4; i > 0; i--) {
-  if(numberGuess !== computerNumber && i === 3){
-    alert('Sorry, you\'re out of guesses. The number was ' + computerNumber + '.')
-    console.log('User score is', userScore)
-  } else if(numberGuess == computerNumber){
+  if(numberGuess == computerNumber){
     alert('Correct, good guess!');
     console.log('User guessed in', i + 1, 'guesses.');
     userScore += 1;
@@ -85,9 +82,17 @@ for(let i = 4; i > 0; i--) {
     break;
   } else if(numberGuess != computerNumber) {
     if(numberGuess > computerNumber){
+      if(i === 1) {
+        alert('Sorry, you\'re out of guesses. My number was ' + computerNumber + '.');
+        break;
+      }
       numberGuess = prompt('Your number guess was too high. Try again!');
       console.log('User new guess is', numberGuess);
     } else if (numberGuess < computerNumber){
+      if(i === 1) {
+        alert('Sorry, you\'re out of guesses. My number was ' + computerNumber + '.');
+        break;
+      }
       numberGuess = prompt('Your number guess was too low. Try again!');
       console.log('User new guess is', numberGuess);
     }
