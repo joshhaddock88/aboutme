@@ -1,6 +1,6 @@
 # LAB - 02
 ## About Me
-I've built a quiz game with questions about me. After the quiz there is an "about me" page to let the user know some basics about my life.
+This is an about me page. It features a brief bio, a chronology, some fun facts, and a top 10 novels. Upon entering the user participates in a little quiz game to see how much they know about me, and then they're told how well they did and are invited to view the rest of the page to learn more.
 
 **Author**: Joshua Haddock
 

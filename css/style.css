@@ -39,23 +39,3 @@ header {
   display: block;
   margin: 7px auto;
 }
-
-article {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-}
-
-.intro {
-  grid-column: 1;
-}
-
-img {
-  width: 80%;
-  grid-column: 2;
-  grid-row: 1/5;
-  margin: 5px auto;
-}
-
-#articleHeader {
-  margin-top: 20px;
-}
