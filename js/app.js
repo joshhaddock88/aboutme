@@ -5,10 +5,10 @@
 
 console.log('Hello World!');
 
-let userScore = 0;
+let userScore = 0; // To keep track of how many correct answers the user has gotten.
 
 let userName = prompt('Hello, welcome to my site! What\'s your name?');
-while(!userName) {
+while(!userName) { // This is to ensure the user writes SOMETHING.
   userName = prompt('Please type a valid name.')
 }
 console.log('User name is', userName);
@@ -16,7 +16,7 @@ alert('Oh, hello ' + userName + '! Thanks for coming by.');
 
 alert('Let\'s play a game where I quiz you about me to see how much you know. Just type yes or no.');
 
-let fiveQuestions = [
+let fiveQuestions = [ //List of the first five questions.
   'First: was I raised in Maryland?',
   'Do I have blue eyes?',
   'Do I have a degree',
@@ -24,7 +24,7 @@ let fiveQuestions = [
   'Did I win a national bartender competition?'
 ]
 
-let yesResponse = [
+let yesResponse = [ //How the computer responds to yes.
   'That is correct',
   'You\'re half right: I have heterochromia. One eye is blue, the other hazel.',
   'Yup, I have a BA in English',
@@ -32,7 +32,7 @@ let yesResponse = [
   'I didn\'t win, unfortunately, but I did make finals.'
 ]
 
-let noResponse = [
+let noResponse = [ //How computer responds to no.
   'Wrong. I was raised in Maryland.',
   'That\'s right! I don\'t have blue eyes, I have heterochromia. One eye is blue, the other is hazel.',
   'I do have a dgree, but not in CS. It\'s in English',
@@ -44,21 +44,25 @@ let answerKey = ['yes', 'no', 'yes', 'yes', 'no'];
 
 let userGuess = [];
 
-for(let i = 0; i < fiveQuestions.length; i++) {
-  console.log(i);
+for(let i = 0; i < fiveQuestions.length; i++) { //loops through questsions and responses.
+  console.log('i value at start', i);
   userGuess[i] = prompt(fiveQuestions[i])
   if(userGuess[i].toLowerCase() === 'yes' || userGuess[i].toLowerCase() === 'y'){
     alert(yesResponse[i]);
+    if(userGuess[i].toLowerCase() === answerKey[i]){
+      userScore += 1;
+    }
   } else if(userGuess[i].toLowerCase() === 'no' || userGuess[i].toLowerCase() === 'n') {
     alert(noResponse[i]);
+    if(userGuess[i].toLowerCase() === answerKey[i]){
+      userScore += 1;
+    }
   } else {
     alert('Invalid response, please try again.')
-    i--;
+    i--; // Keeps the loop going as long as the user types incorrect input.
   }
-  if(userGuess[i].toLowerCase() === answerKey[i]){
-    userScore += 1;
-    console.log(userScore);
-  } console.log(i);
+  console.log('userScore current',userScore);
+  console.log('i value at end',i);
 }
 
 alert('Let\'s try a different game. I\'m thinking of a number between 1-10. You have four tries to get it right.')
@@ -69,7 +73,7 @@ console.log('User guess is', numberGuess);
 let computerNumber = Math.floor(Math.random() * 10) + 1;
 console.log('Computer number is', computerNumber);
 
-for(let i = 0; i < 4; i++) {
+for(let i = 4; i > 0; i--) {
   if(numberGuess !== computerNumber && i === 3){
     alert('Sorry, you\'re out of guesses. The number was ' + computerNumber + '.')
     console.log('User score is', userScore)
