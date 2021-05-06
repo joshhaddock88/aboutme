@@ -7,100 +7,58 @@ console.log('Hello World!');
 
 let userScore = 0;
 
-let userName = prompt("Hello, welcome to my site! What's your name?");
+let userName = prompt('Hello, welcome to my site! What\'s your name?');
 while(!userName) {
   userName = prompt('Please type a valid name.')
 }
 console.log('User name is', userName);
-alert("Oh, hello " + userName + "! Thanks for coming by.");
+alert('Oh, hello ' + userName + '! Thanks for coming by.');
 
-alert("Let's play a game where I quiz you about me to see how much you know. Just type yes or no.");
+alert('Let\'s play a game where I quiz you about me to see how much you know. Just type yes or no.');
 
-let firstFiveQuestions = ['yes', 'no']
+let fiveQuestions = [
+  'First: was I raised in Maryland?',
+  'Do I have blue eyes?',
+  'Do I have a degree',
+  'Have I performed any Shakespeare?',
+  'Did I win a national bartender competition?'
+]
 
-let origin = prompt("First: was I raised in Maryland?");
+let yesResponse = [
+  'That is correct',
+  'You\'re half right: I have heterochromia. One eye is blue, the other hazel.',
+  'Yup, I have a BA in English',
+  'Yes, I was in Romeo and Juliet TWICE!',
+  'I didn\'t win, unfortunately, but I did make finals.'
+]
 
-let lowerCaseOrigin = origin.toLowerCase();
-console.log(lowerCaseOrigin);
+let noResponse = [
+  'Wrong. I was raised in Maryland.',
+  'That\'s right! I don\'t have blue eyes, I have heterochromia. One eye is blue, the other is hazel.',
+  'I do have a dgree, but not in CS. It\'s in English',
+  'I actually have been in a Shakespeare play. I\'ve performed Romeo and Juliet twice.',
+  'Correct. I won regionals but didn\'t win the nationals.'
+]
 
-if (lowerCaseOrigin === 'yes' || lowerCaseOrigin === 'y') {
-  alert('That is correct!');
-  userScore += 1;
-  console.log('User score:', userScore);
-} else if (lowerCaseOrigin === 'no' || lowerCaseOrigin === 'n') {
-  alert('Actually I was raised in Maryland');
-  console.log('User score:', userScore);
-} else {
-  alert('Not a valid input.')
-  console.log('User score:', userScore);
-}
+let answerKey = ['yes', 'no', 'yes', 'yes', 'no'];
 
-let eyeColor = prompt("Do I have blue eyes? Please type yes or no.");
+let userGuess = [];
 
-let lowerCaseEyeColor = eyeColor.toLowerCase();
-console.log(lowerCaseEyeColor);
-
-if (lowerCaseEyeColor === 'yes' || lowerCaseEyeColor === 'y') {
-  alert("You're half right: I have heterochromia. One eye is blue, the other is hazel.");
-  console.log('User score:', userScore);
-} else if (lowerCaseEyeColor === 'no' || lowerCaseEyeColor === 'n') {
-  alert("That's right! I don't have blue eyes, I have heterochromia. One eye is blue, but the other is hazel.");
-  userScore += 1;
-  console.log('User score:', userScore);
-} else {
-  alert('Please pay attention to instructions, this was not a valid input.');
-  console.log('User score:', userScore);
-}
-
-let degree = prompt("Do I have a degree?");
-
-let lowerCaseDegree = degree.toLowerCase();
-console.log(lowerCaseDegree);
-
-if (lowerCaseDegree === 'yes' || lowerCaseDegree === 'y') {
-  alert("Yup, I have a BA in English.");
-  userScore += 1;
-  console.log('User score:', userScore);
-} else if (lowerCaseDegree === 'no' || lowerCaseDegree === 'n') {
-  alert("I do have a degree, but not in CS. It's in English.");
-  console.log('User score:', userScore);
-} else {
-  alert('That is neither yes or no.');
-  console.log('User score:', userScore);
-}
-
-let play = prompt("Have I performed any shakespeare?");
-
-let lowerCasePlay = play.toLowerCase();
-console.log(lowerCasePlay);
-
-if (lowerCasePlay === 'yes' || lowerCasePlay === 'y') {
-  alert("Yes, I was in Romeo and Juliet TWICE!");
-  userScore += 1;
-  console.log('User score:', userScore);
-} else if (lowerCasePlay === 'no' || lowerCasePlay === 'n'){
-  alert("I actually have been in a shakespeare play. I've performed Romeo and Juliet twice.");
-  console.log('User score:', userScore);
-} else {
-  alert('That answer is unacceptable.');
-  console.log('User score:', userScore);
-}
-
-let bartender = prompt("Did I win a national bartender competition?");
-
-let lowerCaseBartender = bartender.toLowerCase();
-console.log(lowerCaseBartender);
-
-if (lowerCaseBartender === 'yes' || lowerCaseBartender === 'y') {
-  alert("I didn't win, unfortunately, but I did make finals.");
-  console.log('User score:', userScore);
-} else if (lowerCaseBartender === 'no' || lowerCaseBartender === 'n') {
-  alert("Correct. I won regionals but I didn't win the nationals.");
-  userScore += 1;
-  console.log('User score:', userScore);
-} else {
-  alert('Incorrect response format.');
-  console.log('User score', userScore);
+for(let i = 0; i < fiveQuestions.length; i++) {
+  console.log(i);
+  userGuess[i] = prompt(fiveQuestions[i])
+  if(userGuess[i].toLowerCase() === 'yes' || userGuess[i].toLowerCase() === 'y'){
+    alert(yesResponse[i]);
+  } else if(userGuess[i].toLowerCase() === 'no' || userGuess[i].toLowerCase() === 'n') {
+    alert(noResponse[i]);
+  } else {
+    alert('Invalid response, please try again.')
+    i--;
+  }
+  if(userGuess[i].toLowerCase() === answerKey[i]){
+    userScore += 1;
+    console.log(userScore);
+  } console.log(i);
 }
 
 alert('Let\'s try a different game. I\'m thinking of a number between 1-10. You have four tries to get it right.')
