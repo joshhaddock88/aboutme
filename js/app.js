@@ -16,6 +16,8 @@ alert("Oh, hello " + userName + "! Thanks for coming by.");
 
 alert("Let's play a game where I quiz you about me to see how much you know. Just type yes or no.");
 
+let firstFiveQuestions = ['yes', 'no']
+
 let origin = prompt("First: was I raised in Maryland?");
 
 let lowerCaseOrigin = origin.toLowerCase();
