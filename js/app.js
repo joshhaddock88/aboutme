@@ -1,8 +1,6 @@
 'use strict';
 // This is for our linter
-
 let userScore = 0; // To keep track of how many correct answers the user has gotten.
-let userName = getUserName();
 
 function getUserName() {
   let name = prompt('Hello, welcome to my site! What\'s your name?');
@@ -14,8 +12,6 @@ function getUserName() {
 }
 
 
-
-alert('Let\'s play a game where I quiz you about me to see how much you know. Just type yes or no.');
 
 function firstFiveQuestions() {
   let fiveQuestions = [ //List of the first five questions.
@@ -137,7 +133,12 @@ function topTenNovels() {
 }
 
 function playGame() {
-  
+  let userName = getUserName();
+  alert('Let\'s play a game where I quiz you about me to see how much you know. Just type yes or no.');
+  firstFiveQuestions();
+  numberGuessingGame();
+  topTenNovels();
+  alert('Thanks for playing ' + userName + '! Your total score was ' + userScore + ' out of 7! If you want to know more about me, you should read my whole page!');
 }
 
-alert('Thanks for playing ' + userName + '! Your total score was ' + userScore + ' out of 7! If you want to know more about me, you should read my whole page!');
+playGame();
