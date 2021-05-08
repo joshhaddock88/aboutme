@@ -5,7 +5,7 @@ let userScore = 0; // To keep track of how many correct answers the user has got
 function getUserName() {
   let name = prompt('Hello, welcome to my site! What\'s your name?');
   while(!name) { // This is to ensure the user writes SOMETHING.
-    name = prompt('Please type a valid name.')
+    name = prompt('Please type a valid name.');
   }
   console.log('User name is', name);
   alert('Oh, hello ' + name + '! Thanks for coming by.');
@@ -44,7 +44,7 @@ function firstFiveQuestions() {
 
   for(let i = 0; i < fiveQuestions.length; i++) { //loops through questsions and responses.
     console.log('i value at start', i);
-    userGuess[i] = prompt(fiveQuestions[i])
+    userGuess[i] = prompt(fiveQuestions[i]);
     if(userGuess[i].toLowerCase() === 'yes' || userGuess[i].toLowerCase() === 'y'){
       alert(yesResponse[i]);
       if(userGuess[i].toLowerCase() === answerKey[i]){
@@ -56,7 +56,7 @@ function firstFiveQuestions() {
         userScore += 1;
       }
     } else {
-      alert('Invalid response, please try again.')
+      alert('Invalid response, please try again.');
       i--; // Keeps the loop going as long as the user types incorrect input.
     }
     console.log('userScore current',userScore);
@@ -65,7 +65,7 @@ function firstFiveQuestions() {
 } 
 
 function numberGuessingGame() {
-  alert('Let\'s try a different game. I\'m thinking of a number between 1-10. You have four tries to get it right.')
+  alert('Let\'s try a different game. I\'m thinking of a number between 1-10. You have four tries to get it right.');
 
   let numberGuess = prompt('What is your first guess?');
   console.log('User guess is', numberGuess);
@@ -103,7 +103,7 @@ function numberGuessingGame() {
 function topTenNovels() {
   const topTen = ['Watership Down', 'Dune', 'Moby Dick', 'Housekeeping', 'For Whom the Bell Tolls', 'So Long, See You Tomorrow', 'Old School', 'Never Let Me Go', 'The Once and Future King', 'My Name is Asher Lev'];
 
-  alert('Next, please guess one of my top 10 favorite novels! You\'ll have 6 attempts.')
+  alert('Next, please guess one of my top 10 favorite novels! You\'ll have 6 attempts.');
 
   let novelPick = prompt('Take a guess.');
   console.log('User picked', novelPick);
@@ -120,7 +120,7 @@ function topTenNovels() {
     } else if (success === false && i > 0){
       novelPick = prompt('Try again. You have ' + guessesLeft + ' guesses left!');
     }
-    for(let j = 0; j < topTen.length; j++){
+    for(let j = 0; j < topTen.length; j++){// allows each guess to loop through all possible answers
       if(topTen[j] === novelPick){
         success = true;
         userScore += 1;
@@ -141,4 +141,4 @@ function playGame() {
   alert('Thanks for playing ' + userName + '! Your total score was ' + userScore + ' out of 7! If you want to know more about me, you should read my whole page!');
 }
 
-playGame();
+//playGame();
