@@ -141,4 +141,4 @@ function playGame() {
   alert('Thanks for playing ' + userName + '! Your total score was ' + userScore + ' out of 7! If you want to know more about me, you should read my whole page!');
 }
 
-//playGame();
+playGame();
